@@ -362,9 +362,11 @@ export default function CreateListing() {
             ))}
           <button
             disabled={loading || uploading}
-            className='p-3 bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-80'
+            className='ml-11 rounded-lg relative flex h-[50px] w-96 items-center justify-center overflow-hidden bg-gray-800 text-white shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-green-500 before:duration-500 before:ease-out hover:shadow-green-500 hover:before:h-56 hover:before:w-screen'
           >
+            <span className='relative z-10'>
             {loading ? 'Creating...' : 'Create listing'}
+            </span>
           </button>
           {error && <p className='text-red-700 text-sm'>{error}</p>}
         </div>

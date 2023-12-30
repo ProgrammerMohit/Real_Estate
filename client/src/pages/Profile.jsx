@@ -191,7 +191,7 @@ export default function Profile() {
           placeholder="username"
           defaultValue={currentUser.username}
           id="username"
-          className="border p-3 rounded-lg"
+          className="border p-3 rounded-lg w-96 ml-11"
           onChange={handleChange}
         />
         <input
@@ -199,7 +199,7 @@ export default function Profile() {
           placeholder="email"
           id="email"
           defaultValue={currentUser.email}
-          className="border p-3 rounded-lg"
+          className="border p-3 rounded-lg w-96 ml-11"
           onChange={handleChange}
         />
         <input
@@ -207,19 +207,21 @@ export default function Profile() {
           placeholder="password"
           onChange={handleChange}
           id="password"
-          className="border p-3 rounded-lg"
+          className="border p-3 rounded-lg w-96 ml-11"
         />
         <button
           disabled={loading}
-          className="bg-slate-700 text-white rounded-lg p-3 uppercase hover:opacity-95 disabled:opacity-80"
+          className="ml-11 w-96 bg-slate-700 text-white rounded-lg p-3  hover:opacity-95 disabled:opacity-80"
         >
           {loading ? "Loading..." : "Update"}
         </button>
         <Link
-          className="bg-green-700 text-white p-3 rounded-lg uppercase text-center hover:opacity-95"
+          // className="bg-green-700 text-white p-3 uppercase text-center hover:opacity-95"
           to={"/create-listing"}
         >
-          Create Listing
+          <button className="ml-11 rounded-lg relative flex h-[50px] w-96 items-center justify-center overflow-hidden bg-gray-800 text-white shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-green-500 before:duration-500 before:ease-out hover:shadow-green-500 hover:before:h-56 hover:before:w-screen">
+            <span className="relative z-10">Create Listing</span>
+          </button>
         </Link>
       </form>
       <div className="flex justify-between mt-5">
@@ -240,8 +242,8 @@ export default function Profile() {
       <p className="text-green-700 mt-5">
         {updateSuccess ? "User is updated successfully!" : ""}
       </p>
-      <button onClick={handleShowListings} className="text-green-700 w-full">
-        Show Listings
+      <button onClick={handleShowListings} className="ml-40 relative flex h-[50px] w-40 items-center justify-center overflow-hidden bg-blue-600 font-medium text-white shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:border-0 before:border-white before:duration-100 before:ease-linear hover:bg-white hover:text-blue-600 hover:shadow-blue-600 hover:before:border-[25px]">
+        <span className="relative z-10">Show Listing's</span>
       </button>
       <p className="text-red-700 mt-5">
         {showListingsError ? "Error showing listings" : ""}
@@ -255,7 +257,7 @@ export default function Profile() {
           {userListings.map((listing) => (
             <div
               key={listing._id}
-              className="border rounded-lg p-3 flex justify-between items-center gap-4"
+              className=" border-slate-300 hover:border-indigo-500 border rounded-lg p-3 flex justify-between items-center gap-4"
             >
               <Link to={`/listing/${listing._id}`}>
                 <img
